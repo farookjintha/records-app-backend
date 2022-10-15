@@ -14,6 +14,11 @@ const employeeRoutes = require('./routes/employees.route');
 app.use(express.json());
 app.use(cors()); //Cross Origin Resource Sharing
 
+
+app.get('/', (req, res) => {
+    res.status(200).send('Welcome to Records App');
+})
+
 //Custom Middleware
 app.use('/api',employeeRoutes);
 
