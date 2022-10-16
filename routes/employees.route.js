@@ -49,6 +49,19 @@ router.get('/employees/:email', (req, res) => {
    }
 });
 
+//To get an existing employee
+router.get('/employees/:id', (req, res) => {
+    try{
+        Employees.find({_id: req.params.id},(err, data) => {
+            if(err){
+               return res.status(400).send('Error while getting the employee details')
+            }
+            res.status(200).send(data);
+        })
+   }catch(err){
+       res.status(500).send('Internal Server Error');
+   }
+});
 
 //To update an employee details
 router.put('/employees/:empId', (req, res) => {
