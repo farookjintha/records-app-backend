@@ -36,18 +36,19 @@ router.get('/employees', (req, res) => {
 });
 
 //To get an existing employee
-router.get('/employees/:email', (req, res) => {
-    try{
-        Employees.find({email: req.params.email},(err, data) => {
-            if(err){
-               return res.status(400).send('Error while getting the employee details')
-            }
-            res.status(200).send(data);
-        })
-   }catch(err){
-       res.status(500).send('Internal Server Error');
-   }
-});
+// router.get('/employees/:email', (req, res) => {
+//     try{
+//         console.log(req.params)
+//         Employees.find({email: req.params.email},(err, data) => {
+//             if(err){
+//                return res.status(400).send('Error while getting the employee details')
+//             }
+//             res.status(200).send(data);
+//         })
+//    }catch(err){
+//        res.status(500).send('Internal Server Error');
+//    }
+// });
 
 //To get an existing employee
 router.get('/employees/:id', (req, res) => {
